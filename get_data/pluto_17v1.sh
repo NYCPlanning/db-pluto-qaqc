@@ -16,7 +16,7 @@ cat Borofiles_CSV/BK2017V1.csv | head -n1 > pluto_17v1.csv
 for f in Borofiles_CSV/*.csv; do cat "`pwd`/$f" | tail -n +2 >> pluto_17v1.csv; done
 
 #move target csv to parent directory
-mv pluto_17v1.csv ../../
+mv pluto_17v1.csv ../
 
 #remove temp folder
 cd ..
