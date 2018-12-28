@@ -26,3 +26,5 @@ currently supported versions: ```18v1, 18v11, 17v1, 17v11```
   ```
   * need to consider output format, including summary tables, plots
   * research statistical packages in pyspark
+* 12/28/2018
+  * in older version (17v11) of pluto, there's no padded 0 for the following columns: landuse, tract2010, and sanitdistrict, which resulted in high mismatch rate. However after converting them to integers, match rates are high. 
