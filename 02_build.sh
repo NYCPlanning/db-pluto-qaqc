@@ -25,11 +25,17 @@ spark-submit python/compute_aggregate.py data/pluto_$1.csv output/aggregate_summ
 spark-submit python/compute_aggregate.py data/pluto_$2.csv output/aggregate_summary_$2.csv
 
 ## Visualization for aggregate summary comparison
-python python/aggregate_summary_viz.py output/aggregate_summary_$1.csv output/aggregate_summary_$2.csv aggregate_summary_$1_$2.png
+python python/aggregate_summary_viz.py output/aggregate_summary_$1.csv output/aggregate_summary_$2.csv output/aggregate_summary_$1_$2.png
 
 # Step 3: Count null for each columns
 spark-submit python/count_null.py data/pluto_$1.csv output/count_null_$1.csv
 spark-submit python/count_null.py data/pluto_$2.csv output/count_null_$2.csv
 
 ## Visualization for null count comparison
-python python/count_null_viz.py output/count_null_$1.csv output/count_null_$2.csv count_null_$1_$2.png
+python python/count_null_viz.py output/count_null_$1.csv output/count_null_$2.csv output/count_null_$1_$2.png $1_$2
+
+## Step Last: Zipping all output into a report$1$2.zip
+zip -r output_$1_$2.zip output
+
+## Remove output directory
+rm -r output
