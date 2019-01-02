@@ -25,7 +25,7 @@ spark-submit python/compute_aggregate.py data/pluto_$1.csv output/aggregate_summ
 spark-submit python/compute_aggregate.py data/pluto_$2.csv output/aggregate_summary_$2.csv
 
 ## Visualization for aggregate summary comparison
-python python/aggregate_summary_viz.py output/aggregate_summary_$1.csv output/aggregate_summary_$2.csv output/aggregate_summary_$1_$2.png
+python python/aggregate_summary_viz.py output/aggregate_summary_$1.csv output/aggregate_summary_$2.csv output/aggregate_summary_$1_$2.png $1_$2
 
 # Step 3: Count null for each columns
 spark-submit python/count_null.py data/pluto_$1.csv output/count_null_$1.csv
