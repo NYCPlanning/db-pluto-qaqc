@@ -4,6 +4,12 @@ from pyspark.sql.functions import sum, col, round
 import sys
 import time
 import pandas as pd
+import os
+import psycopg2
+
+DATABASE_URL = os.environ['DATABASE_URL']
+
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 if __name__=='__main__':
         start_time = time.time()
@@ -40,18 +46,13 @@ if __name__=='__main__':
                         sum("exemptland"),
                         sum("exempttot"),
                         sum("firm07_flag"),
-                        sum("pfirm15_flag"),
-                        sum(col("lotarea")*col("builtfar")),
-                        sum(col("lotarea")*col("residfar")),
-                        sum(col("lotarea")*col("commfar")),
-                        sum(col("lotarea")*col("facilfar"))).toPandas()
+                        sum("pfirm15_flag")).toPandas()
 
         agg_cols = ['version','UnitsRes','LotArea','BldgArea','ComArea',
                     'ResArea','OfficeArea','RetailArea','GarageArea',
                     'StrgeArea','FactryArea','OtherArea','AssessLand',
                     'AssessTot','ExemptLand','ExemptTot','FIRM07_FLAG',
-                    'PFIRM15_FLAG','LotAreaXBuiltFAR', 'LotAreaXResidFAR',
-                    'LotAreaXCommFAR', 'LotAreaXFacilFAR']
+                    'PFIRM15_FLAG']
         
         ### Update column names
         summary.columns = agg_cols
