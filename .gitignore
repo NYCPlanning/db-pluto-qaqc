@@ -2,11 +2,6 @@ data/
 test_data/
 *.png
 *.csv
-
-/18v2/data/*
-/19v1/data/*
-/db-sca-capital-projects/__pycache__/*
-/db-sca-capital-projects/lib/__pycache__/*
-
+*.DS_Store
 
 
