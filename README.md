@@ -49,3 +49,23 @@ Note: please follow the oder OLD NEW to get the correct plots.
       2. deploy with sample data on local machine
       3. deploy with complete data on the cloud
     * Find out more about system hardware configuration or performance optimization
+
+## Docker Setup Instructions::
+1. Make sure you have docker installed
+2. Pull the docker image
+    ```
+    docker pull jupyter/pyspark-notebook:latest
+    ```
+3. navigate to the db-pluto-qaqc directory
+    ```
+    cd db-pluto-qaqc
+    ```
+4. To run jupyter notebook at your current directory
+    ```
+    docker run -it --rm --name=qaqc            
+            -v `pwd`:/home/db-pluto-qaqc            
+            -w /home/db-pluto-qaqc            
+            -p 8888:8888            
+            jupyter/pyspark-notebook:latest
+    ```
+5. Replace the URLs http://xxxxxx:8888/?token=xxxxxxxxxxxxxxx by http://localhost:8888/?token=xxxxxxxxxxxxxxx
